@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Tableau de Pixels Collaboratif</title>
+  <link rel="stylesheet" href="style.css">
+  <script src="https://www.gstatic.com/firebasejs/10.7.0/firebase-app-compat.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/10.7.0/firebase-database-compat.js"></script>
+  <script src="script.js" defer></script>
+</head>
+<body>
+  <h1>Tableau de Pixels Collaboratif</h1>
+  <div class="controls">
+    <input type="color" id="colorPicker" value="#000000">
+    <button id="clearBtn">Effacer tout</button>
+    <div class="size-control">
+      <label for="brushSize">Taille du pinceau:</label>
+      <select id="brushSize">
+        <option value="1">1x1</option>
+        <option value="2">2x2</option>
+        <option value="3">3x3</option>
+      </select>
+    </div>
+  </div>
+  <div id="pixelBoard"></div>
+  <div id="resetNotification" class="notification hidden">
+    Le tableau sera réinitialisé ce week-end !
+  </div>
+
+  <script>
+    // Configuration Firebase
+    const firebaseConfig = {
+      apiKey: "VOTRE_API_KEY",
+      authDomain: "VOTRE_PROJET.firebaseapp.com",
+      databaseURL: "https://VOTRE_PROJET.firebaseio.com",
+      projectId: "VOTRE_PROJET",
+      storageBucket: "VOTRE_PROJET.appspot.com",
+      messagingSenderId: "VOTRE_SENDER_ID",
+      appId: "VOTRE_APP_ID"
+    };
+    firebase.initializeApp(firebaseConfig);
+  </script>
+</body>
+</html>
