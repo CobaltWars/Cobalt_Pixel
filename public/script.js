@@ -115,8 +115,8 @@ function checkReset() {
       
       // Afficher notification du jeudi au samedi
       const now = new Date();
-      const day = now.getDay();
-      if (day >= 4 || day <= 6) {
+      const day = now.getDay(); // 0=Dimanche, 1=Lundi, ..., 6=Samedi
+      if (day >= 4 && day <= 6) { // Correction: du jeudi au samedi
         showNotification('Le tableau sera réinitialisé ce week-end !');
       }
     });

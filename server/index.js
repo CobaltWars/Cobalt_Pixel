@@ -14,7 +14,7 @@ admin.initializeApp({
 // Middleware
 app.use(cors());
 app.use(express.json());
-app.use(express.static(path.join(__dirname, '../../public')));
+app.use(express.static(path.join(__dirname, '../public'))); // Correction: un seul niveau au-dessus
 
 // Endpoint pour la réinitialisation
 app.get('/api/check-reset', async (req, res) => {
@@ -66,4 +66,11 @@ app.post('/api/update-pixels', async (req, res) => {
 
 // Toutes les autres routes
 app.get('*', (req, res) => {
-  res.sendFile(path.join
+  res.sendFile(path.join(__dirname, '../public/index.html'));
+});
+
+// Définir le port et démarrer le serveur
+const PORT = process.env.PORT || 3000;
+app.listen(PORT, () => {
+  console.log(`Serveur démarré sur le port ${PORT}`);
+});
